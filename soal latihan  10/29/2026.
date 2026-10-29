@@ -1,0 +1,265 @@
+>>Soal no 1 
+
+>>'b'
+
+clc;
+clear;
+num = 30;
+den = [1 8 9 6 1 30];
+G = tf(num, den);
+[A,B,C,Dc] = tf2ss(num, den);
+Af = flipud(Ac);
+A = fliplr(Af);
+B = flipud(Bc);
+C = fliplr(Cc);
+ans =
+      'b'
+G(s)=              100
+   ---------------------------
+s^5 + 8s^4 + 9s^3 + 6s^2 + s  + 30
+
+>>JAWABAN 'B'
+
+
+A = 5×5
+       0      1      0      0      0
+       0      0      1      0      0
+       0      0      0      1      0
+       0      0      0      0      1
+     -30     -1     -6     -9     -8
+
+
+B = 5×1
+     0
+     0
+     0
+     0
+     1
+
+
+C = 1×5
+     30     0     0     0     0
+
+>>SOAL 2
+>>'a'
+
+>>clc;
+clear;
+
+num = [8 10];
+den = [1 5 1 5 13];
+
+G = tf(num, den);
+[A,B,C,D] = tf2ss(num, den);
+
+Af = flipud(A);
+A = fliplr(Af);
+B = flipud(B);
+C = fliplr(C);
+
+ans  = 
+       'a'
+ G(s)=            8s+10
+       ---------------------------------
+      s^4  +  5s^3  +  s^2  +  5s  +  13
+>>JAWABAN 'a'
+
+
+A = 4×4
+       0      1      0      0
+       0      0      1      0
+       0      0      0      1
+     -13     -5     -1     -5
+
+
+B = 4×1
+     0
+     0
+     0
+     1
+
+
+C = 1×4
+     10     8     0     0
+
+
+D =  0
+
+>>soal no 2 
+>>      'b'
+
+
+clc;
+clear;
+
+num = [1 2 12 7 6];
+den = [1 9 13 8 0 0];
+
+G = tf(num, den);
+[A,B,C,D] = tf2ss(num, den);
+
+Af = flipud(A);
+A = fliplr(Af);
+B = flipud(B);
+C = fliplr(C);
+
+
+ans  = 
+       'a'
+ G(s)=    s^4  +  2s^3  +  12s^2  +  7s  +  6
+           ---------------------------------
+            s^5  +  9s^4  +  13s^3  +  8s^2 
+
+>>JAWABAN 'b'
+
+
+
+A = 5×5
+     0     1      0       0      0
+     0     0      1       0      0
+     0     0      0       1      0
+     0     0      0       0      1
+     0     0     -8     -13     -9
+
+
+B = 5×1
+     0
+     0
+     0
+     0
+     1
+
+
+C = 1×5
+     6     7     12     2     1
+
+
+D =    0
+
+
+
+>> soal no 3
+
+>>     'b'
+A = [ 3  1  0  4 -2;
+     -3  5 -5  2 -1;
+      0  1 -1  2  8;
+     -7  6 -3 -4  0;
+     -6  0  4 -3  1];
+
+B = [2; 7; 8; 5; 4];
+C = [1 -2 -9 7 6];
+D = 0;
+
+I = eye(5);
+M = s*I - A;
+
+% Menghitung determinan dan adjugat
+penyebut = expand(det(M));
+pembilang = expand(C*adjoint(M)*B);
+
+% Fungsi transfer
+G = simplify(pembilang/penyebut + D);
+
+disp('Pembilang:')
+pretty(pembilang)
+
+disp('Penyebut:')
+pretty(penyebut)
+
+disp('Fungsi transfer:')
+pretty(G)
+
+
+ans  = 
+       'b'
+ G(s)=    -25s^4  +  292s^3  +  1680s^2  +  16282s  +  31875
+           ---------------------------------
+            s^5  -  4s^4  -  32s^3  +  148s^2  -1153s  -  4480 
+
+>>JAWABAN 'b'
+
+ A = 
+       x1  x2  x3  x4  x5
+   x1   3   1   0   4  -2
+   x2  -3   5  -5   2  -1
+   x3   0   1  -1   2   8
+   x4  -7   6  -3  -4   0
+   x5  -6   0   4  -3   1
+ 
+  B = 
+       u1
+   x1   2
+   x2   7
+   x3   8
+   x4   5
+   x5   4
+ 
+  C = 
+       x1  x2  x3  x4  x5
+   y1   1  -2  -9   7   6
+ 
+  D = 
+       u1
+   y1   0
+
+
+>> soal no 4
+     'b'
+
+
+A = [3 1 0 4 -2;
+    -3 5 -5 2 -1;
+     0 1 -1 2 8;
+    -7 6 -3 -4 0;
+    -6 0 4 -3 1];
+
+B = [2;7;8;5;4];
+
+C = [1 -2 -9 7 6];
+
+D = 0;
+
+I = [1 0 0 0 0;
+     0 1 0 0 0;
+     0 0 1 0 0;
+     0 0 0 1 0;
+     0 0 0 0 1];
+
+'T(s)'
+
+T = simplify(C*((s*I-A)^(-1))*B+D);
+
+pretty(T)
+
+
+ans  = 
+       'b'
+ G(s)=    -25s^4  +  292s^3  +  1680s^2  +  16282s  +  31875
+           ---------------------------------
+            s^5  -  4s^4  -  32s^3  +  148s^2  -1153s  -  4480 
+
+>> JAWABAN 'b'
+
+
+Pembilang:
+      4        3         2
+- 25 s  - 292 s  + 1680 s  + 16282 s + 31875
+
+Penyebut:
+ 5      4       3        2
+s  - 4 s  - 32 s  + 148 s  - 1153 s - 4480
+
+Fungsi transfer:
+        4        3         2
+  - 25 s  - 292 s  + 1680 s  + 16282 s + 31875
+- --------------------------------------------
+     5      4       3        2
+  - s  + 4 s  + 32 s  - 148 s  + 1153 s + 4480
+
+>> 
+
+
+
+
+
