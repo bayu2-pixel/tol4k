@@ -1,0 +1,42 @@
+clc;
+clear;
+
+num = 30;
+den = [1 8 9 6 1 30];
+
+G = tf(num, den);
+[A,B,C,D] = tf2ss(num, den);
+
+Af = flipud(A);
+A = fliplr(Af);
+B = flipud(B);
+C = fliplr(C);
+
+A
+B
+C
+D
+
+
+
+A = 5×5
+       0      1      0      0      0
+       0      0      1      0      0
+       0      0      0      1      0
+       0      0      0      0      1
+     -30     -1     -6     -9     -8
+
+
+B = 5×1
+     0
+     0
+     0
+     0
+     1
+
+
+C = 1×5
+     30     0     0     0     0
+
+
+D = 0
