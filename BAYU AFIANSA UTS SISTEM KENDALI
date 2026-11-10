@@ -1,0 +1,554 @@
+>>jawaban no 1
+clc;
+clear;
+
+A = [0 1; -2 -3];
+B = [1 0; 3 -2];
+C = [1 -1; -2 2];
+
+% Penjumlahan matriks
+hasil1 = A + B
+
+% Pengurangan matriks
+hasil2 = A - B
+
+% Transpose matriks
+hasil3 = A'
+
+% Invers matriks
+hasil4 = inv(A)
+
+% Diagonal matriks
+hasil5 = diag(A)
+hasil6 = diag(B)
+
+% Determinan matriks
+hasil7 = det(A)
+hasil8 = det(B)
+
+% Determinan perkalian AB
+hasil9 = det(A*B)
+
+% Nilai eigen matriks A
+hasil10 = eig(A)
+
+>>hasil no 1
+
+hasil1 = 2×2
+     1      1
+     1     -5
+
+
+hasil2 = 2×2
+     -1      1
+     -5     -1
+
+
+hasil3 = 2×2
+     0     -2
+     1     -3
+
+
+hasil4 = 2×2
+     -1.5000     -0.5000
+      1.0000           0
+
+
+hasil5 = 2×1
+      0
+     -3
+
+
+hasil6 = 2×1
+      1
+     -2
+
+
+hasil7 =
+
+     2
+
+
+hasil8 =
+
+    -2
+
+
+hasil9 =
+
+   -4.0000
+
+
+hasil10 = 2×1
+     -1
+     -2
+
+>>jawaban no 2
+clc;
+clear;
+
+A = [1 2; 3 4];
+b = [5; 6];
+
+% Mencari invers matriks
+A_inv = inv(A)
+
+% Menyelesaikan persamaan linear
+x = A\b
+
+% Menampilkan hasil
+x1 = x(1)
+x2 = x(2)
+
+>>hasil no 2
+
+A_inv = 2×2
+     -2.0000      1.0000
+      1.5000     -0.5000
+
+
+x = 2×1
+     -4.0000
+      4.5000
+
+
+x1 =
+
+   -4.0000
+
+
+x2 =
+
+    4.5000
+  >>jawaban no 3
+  clc;
+clear;
+close all;
+
+% Konstanta waktu
+T = 5;
+
+% Nilai a
+a = -1/T;
+
+% Kondisi awal
+x0 = 1;
+
+% Interval waktu
+t = 0:0.1:25;
+
+% Persamaan sistem dinamis
+x = exp(a*t)*x0;
+
+% Membuat grafik
+plot(t,x,'b','LineWidth',2);
+
+% Menambahkan grid dan judul
+grid on;
+xlabel('Waktu (t)');
+ylabel('x(t)');
+title('Respon Sistem Dinamis');
+
+>>jawaban no 4 A
+clc;
+clear;
+
+% Koefisien polinomial
+p = [-2.1 2 0 5 11];
+
+% Mencari akar polinomial
+akar = roots(p)
+
+% Memeriksa hasil akar
+cek = polyval(p,akar)
+
+% Menghitung nilai p(2)
+hasil = polyval(p,2)
+
+>>hasil no 4 A
+
+akar = 4×1 complex
+      2.0820 + 0.0000i
+     -0.0199 + 1.5193i
+     -0.0199 - 1.5193i
+     -1.0898 + 0.0000i
+
+
+cek = 4×1 complex
+1.0e+-13
+      0.2487 + 0.0000i
+     -0.0533 + 0.1479i
+     -0.0533 - 0.1479i
+      0.0533 + 0.0000i
+
+
+hasil =
+
+    3.4000
+
+    >>jawaban no 4 B
+    clc;
+clear;
+
+% Polinomial p1 dan p2
+p1 = [-1 1 1];
+p2 = [1 0 0 2];
+
+% Perkalian polinomial
+p = conv(p1,p2)
+
+% Mencari akar polinomial
+akar = roots(p)
+
+% Menghitung p(2)
+hasil = polyval(p,2)
+
+% Turunan p2
+turunan = polyder(p2)
+
+>>hasil no 4 B
+
+p = 1×6
+     -1     1     1     -2     2     2
+
+
+akar = 5×1 complex
+      1.6180 + 0.0000i
+      0.6300 + 1.0911i
+      0.6300 - 1.0911i
+     -1.2599 + 0.0000i
+     -0.6180 + 0.0000i
+
+
+hasil =
+
+   -10
+
+
+turunan = 1×3
+     3     0     0
+
+>>jawaban no 5
+clc;
+clear;
+close all;
+
+% Koefisien pembilang dan penyebut
+num = [1 2 3];
+den = [1 4 5 2];
+
+% Mencari residu, pole, dan hasil bagi
+[r,p,k] = residue(num,den)
+
+% Menampilkan kembali fungsi rasional
+[num2,den2] = residue(r,p,k)
+
+% Membuat fungsi transfer
+G = tf(num,den)
+
+% Plot pole dan zero
+figure;
+pzmap(G);
+grid on;
+title('Pole Zero Map');
+
+>>hasil no 5
+
+r = 3×1
+      3.0000
+     -2.0000
+      2.0000
+
+
+p = 3×1
+     -2.0000
+     -1.0000
+     -1.0000
+
+
+k =
+
+     []
+
+
+num2 = 1×3
+     1.0000     2.0000     3.0000
+
+
+den2 = 1×4
+     1.0000     4.0000     5.0000     2.0000
+
+
+G = 
+
+      s^2 + 2 s + 3
+  ---------------------
+  s^3 + 4 s^2 + 5 s + 2
+ 
+
+>>jawaban no 6
+
+clc;
+clear;
+close all;
+
+% Pembilang dan penyebut
+num = [2 3 1];
+den = [1 5 6 2];
+
+% Membuat fungsi transfer
+G = tf(num,den)
+
+% Mengubah ke bentuk zero-pole-gain
+[z,p,k] = tf2zp(num,den)
+
+% Menampilkan bentuk ZPK
+Gzpk = zpk(z,p,k)
+
+% Plot pole dan zero
+figure;
+pzmap(G);
+grid on;
+title('Pole Zero Map Sistem');
+
+% Memeriksa pole
+disp('Pole sistem adalah:');
+disp(p);
+
+>>hasil no 6
+ 
+G = 
+
+     2 s^2 + 3 s + 1
+  ---------------------
+  s^3 + 5 s^2 + 6 s + 2
+ 
+Continuous-time transfer function.
+Model Properties
+
+z = 2×1
+     -1.0000
+     -0.5000
+
+
+p = 3×1
+     -3.4142
+     -1.0000
+     -0.5858
+
+
+k =
+
+     2
+
+
+Gzpk = 
+
+       2 (s+1) (s+0.5)
+  --------------------------
+  (s+3.414) (s+1) (s+0.5858)
+ 
+Continuous-time zero/pole/gain model.
+Model Properties
+Pole sistem adalah:
+   -3.4142
+   -1.0000
+   -0.5858
+
+ >>jawaban no 7
+clc;
+clear;
+close all;
+
+% Sistem pertama
+G1 = tf([1 1],[1 3]);
+
+% Sistem kedua
+G2 = tf(1,[100 10 1]);
+
+% Menghubungkan sistem secara seri
+Gseri = series(G1,G2)
+
+% Menampilkan fungsi transfer total
+disp('Fungsi transfer total:');
+Gseri
+
+% Membuat grafik respon step
+figure;
+step(Gseri);
+grid on;
+title('Respon Step Sistem Seri');
+xlabel('Waktu (detik)');
+ylabel('Amplitudo');
+
+ >>hasil no 7
+Gseri = 
+
+             s + 1
+  ----------------------------
+  100 s^3 + 310 s^2 + 31 s + 3
+ 
+Continuous-time transfer function.
+Model Properties
+Fungsi transfer total:
+
+Gseri = 
+
+             s + 1
+  ----------------------------
+  100 s^3 + 310 s^2 + 31 s + 3
+ 
+Continuous-time transfer function.
+Model Properties
+
+>>jawaban no 8
+clc;
+clear;
+close all;
+
+% Sistem pertama
+G1 = tf([1 1],[1 3]);
+
+% Sistem kedua
+G2 = tf([1 0],[1 2 5]);
+
+% Menghubungkan sistem secara paralel
+Gparalel = parallel(G1,G2)
+
+% Menampilkan fungsi transfer total
+disp('Fungsi transfer paralel:');
+Gparalel
+
+% Membuat grafik Bode
+figure;
+bode(Gparalel);
+grid on;
+title('Diagram Bode Sistem Paralel');
+
+% Membuat grafik impulse
+figure;
+impulse(Gparalel);
+grid on;
+title('Respon Impulse Sistem Paralel');
+
+>>hasil no 8
+Gparalel = 
+
+  s^3 + 4 s^2 + 10 s + 5
+  -----------------------
+  s^3 + 5 s^2 + 11 s + 15
+ 
+Continuous-time transfer function.
+Model Properties
+Fungsi transfer paralel:
+
+>>jawaban no 9
+clc;
+clear;
+close all;
+
+% Membuat sistem G1
+G1 = tf([1 4],[1 3 2]);
+
+% Membuat sistem G2
+G2 = tf(1,[1 1]);
+
+% Membuat sistem feedback negatif
+Gclosed = feedback(G1,G2)
+
+% Menampilkan fungsi transfer tertutup
+disp('Fungsi transfer loop tertutup:');
+Gclosed
+
+% Mencari pole sistem
+p = pole(Gclosed)
+
+% Plot pole dan zero
+figure;
+pzmap(Gclosed);
+grid on;
+title('Pole Zero Sistem Feedback');
+
+>>hasil no 9
+Gclosed = 
+
+      s^2 + 5 s + 4
+  ---------------------
+  s^3 + 4 s^2 + 6 s + 6
+ 
+Continuous-time transfer function.
+Model Properties
+Fungsi transfer loop tertutup:
+
+Gclosed = 
+
+      s^2 + 5 s + 4
+  ---------------------
+  s^3 + 4 s^2 + 6 s + 6
+ 
+Continuous-time transfer function.
+Model Properties
+
+p = 3×1 complex
+     -2.5747 + 0.0000i
+     -0.7126 + 1.3500i
+     -0.7126 - 1.3500i
+
+>>jawaban no 10
+clc;
+clear;
+close all;
+
+% Gain
+K = 10;
+
+% Sistem G1 dengan gain
+G1 = tf([10 40],[1 3 2]);
+
+% Sistem G2
+G2 = tf(1,[1 1]);
+
+% Membuat feedback negatif
+Gclosed = feedback(G1,G2)
+
+% Menampilkan fungsi transfer
+disp('Fungsi transfer dengan gain K=10:');
+Gclosed
+
+% Mencari pole sistem
+p = pole(Gclosed)
+
+% Menampilkan grafik pole dan zero
+figure;
+pzmap(Gclosed);
+grid on;
+title('Pole Zero dengan Gain K=10');
+
+>> hasil no 10
+Gclosed = 
+
+    10 s^2 + 50 s + 40
+  -----------------------
+  s^3 + 4 s^2 + 15 s + 42
+ 
+Continuous-time transfer function.
+Model Properties
+Fungsi transfer dengan gain K=10:
+
+Gclosed = 
+
+    10 s^2 + 50 s + 40
+  -----------------------
+  s^3 + 4 s^2 + 15 s + 42
+ 
+Continuous-time transfer function.
+Model Properties
+
+p = 3×1 complex
+     -0.3471 + 3.5475i
+     -0.3471 - 3.5475i
+     -3.3058 + 0.0000i
+
+>> 
+
+
